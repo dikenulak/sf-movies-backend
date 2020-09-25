@@ -16,7 +16,7 @@ const geocoder = NodeGeocoder(options);
 
 const filterData = async (data) => {
   const allDataWithoutNullLocation = data.filter(list => list.locations).slice(0, 400);
-  const locations = allDataWithoutNullLocation.map(d => d.locations).slice(0,10);
+  const locations = allDataWithoutNullLocation.map(d => d.locations)
   const response = await (await geocoder.batchGeocode(Array.from(new Set(...[locations])))).map(data => data.value[0]);
   
 
